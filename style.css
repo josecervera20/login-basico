@@ -1,6 +1,13 @@
 /* Variables globales */
 :root {
-    --main-color: #3866f2;
+    --main-color: #007bff;
+    --accent-color: #28a745;
+    --text-color-dark: #333333;
+    --text-color-light: #f8f9fa;
+    --background-light: #f0f4f8;
+    --background-form: #ffffff;
+    --border-color: #ced4da;
+    --placeholder-color: #6c757d;
 }
 
 /* Estilos generales para todos los elementos */
@@ -12,7 +19,7 @@
 /* Estilos para el cuerpo de la página */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #e5e5f7;
+    background-color: var(--background-light);
     display: flex;
     align-items: center;
     min-height: 100vh;
@@ -20,13 +27,13 @@ body {
 
 /* Estilos para el contenedor del formulario */
 .form {
-    background-color: #fff;
+    background-color: var(--background-form);
     width: 90%;
     max-width: 400px;
     margin: 0 auto;
     padding: 4.5em 3em;
     border-radius: 10px;
-    box-shadow: 0 5px 10px -5px rgb(0, 0, 0, .3);
+    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, .2);
     text-align: center;
 }
 
@@ -34,17 +41,24 @@ body {
 .form__title {
     font-size: 2rem;
     margin-bottom: .5em;
+    color: var(--text-color-dark);
 }
 
 /* Estilos para el párrafo dentro del formulario */
 .form__paragraph {
     font-weight: 300;
+    color: var(--text-color-dark);
 }
 
 /* Estilos para el enlace dentro del formulario */
 .form__link {
     font-weight: 400;
-    color: #000;
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.form__link:hover {
+    text-decoration: underline;
 }
 
 /* Estilos para el contenedor de los campos del formulario */
@@ -57,7 +71,7 @@ body {
 /* Estilos para el grupo de cada campo del formulario (input y label) */
 .form__group {
     position: relative;
-    --color: #5757577e;
+    --color: var(--placeholder-color);
 }
 
 /* Estilos para los campos de entrada del formulario */
@@ -66,11 +80,11 @@ body {
     background: none;
     font-family: inherit;
     font-size: 1rem;
-    color: #706c6c;
+    color: var(--text-color-dark);
     padding: .6em .3em;
     border: none;
     outline: none;
-    border-bottom: 1px solid var(--color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 /* Estilos para la etiqueta del formulario cuando el input no tiene placeholder o está enfocado */
@@ -78,7 +92,7 @@ body {
 .form__input:focus+.form__label {
     transform: translateY(-12px) scale(.7);
     transform-origin: top left;
-    --color: #3866f2;
+    --color: var(--main-color);
 }
 
 /* Estilos para la etiqueta del formulario */
@@ -95,12 +109,18 @@ body {
 /* Estilos para el botón de envío del formulario */
 .form__submit {
     background-color: var(--main-color);
-    color: #fff;
+    color: var(--text-color-light);
     font-family: inherit;
     font-size: 1rem;
     padding: .8em 0;
     border: none;
     border-radius: .5em;
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+.form__submit:hover {
+    background-color: var(--accent-color);
 }
 
 /* Estilos para la línea de animación debajo del input */
@@ -109,7 +129,7 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 1px;
+    height: 2px;
     background-color: var(--main-color);
     transform: scale(0);
     transform-origin: left bottom;
